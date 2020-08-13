@@ -1,0 +1,26 @@
+
+1. Run server.js, prefer using nodemon
+    $ nodemon server
+
+   It will run on localhost:3000
+
+2. Try to GET to http://localhost:3000/posts
+   response: 401 UNAUTHORIZED!
+
+3. To be authorized,
+   Try to POST http://localhost:3000/login
+   
+   headers: Content-Type: application/json
+   body: { "username": "Andy" }
+
+   username must be 1 of user data
+
+   response: 
+   {"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQnVkaSIsImlhdCI6MTU5NzI4MzcwM30.VSBACaUdtyK7Eyjn1jxelc0gtcKI-4df8Oq_NKqwsaE"}
+
+4. use this access token to be authorized
+   GET to http://localhost:3000/posts
+   
+   headers: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQnVkaSIsImlhdCI6MTU5NzI4MzcwM30.VSBACaUdtyK7Eyjn1jxelc0gtcKI-4df8Oq_NKqwsaE
+   
+   response: [{"username":"Andy","title":"Post 2"}]
